@@ -27,6 +27,7 @@ const createManager = async (req, res) => {
             username: req.body.username,
             password: hashedPassword,
             name: req.body.name,
+            isManager: true
         });
 
         // Respond

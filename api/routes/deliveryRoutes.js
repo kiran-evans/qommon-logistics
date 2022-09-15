@@ -9,6 +9,6 @@ const {
 } = require('../controller/deliveryController');
 
 router.route('/').get(getAllDeliverys).post(createDelivery);
-router.route('/:id&:username').delete(deleteDelivery).put(updateDelivery).get(getDeliveryByID);
+router.route('/:id').delete(deleteDelivery).put(updateDelivery).get(getDeliveryByID);
 
 module.exports = router;

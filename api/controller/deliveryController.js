@@ -16,6 +16,7 @@ const createDelivery = async (req, res) => {
         const newDelivery = new Delivery({
             location: req.body.location,
             weight: req.body.weight,
+            dateAdded: req.body.dateAdded,
         });
 
         // Respond
@@ -46,13 +47,7 @@ const updateDelivery = async (req, res) => {
 };
 
 const deleteDelivery = async (req, res) => {
-  const delivery = await Delivery.findById(req.params.id);
-  if (!delivery) {
-    res.status(400).json({ message: `delivery not found` });
-  }
-
-  await delivery.remove();
-
+  await Delivery.findByIdAndDelete(req.params.id);
   res.status(204).json({ id: req.params.id });
 };
 
