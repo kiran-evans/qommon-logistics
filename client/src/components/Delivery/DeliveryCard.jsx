@@ -10,14 +10,13 @@ const DeliveryCard = (props) => {
     const [deliveryStatus, setDeliveryStatus] = useState(isDelivered);
   
     const goToDelivery = () => {
-      props.setDelivery(props.delivery);  
+      props.setDelivery(props.delivery);
       navigator('/delivery');
     }
 
     const handleClick = async () => {
         try {
-            const res = await axios.put(`http://localhost:5000/api/delivery${id}`,
-                {isDelivered:true});
+            await axios.put(`http://localhost:5000/api/delivery${id}`, {isDelivered:true});
             setDeliveryStatus(true);
         } catch (err) {
             console.log(err);
@@ -26,20 +25,20 @@ const DeliveryCard = (props) => {
 
     return (
         <div className="deliveryCard" onClick={() => goToDelivery()} >
-            <h1>Delivery {delivery._id}</h1>
-            <p>Location: {location}</p>
-            <p>Assigned Driver: {assignedDriverId}</p>
-            <p>Delivered: {deliveryStatus}</p>
+            <h1>Delivery {id}</h1>
+            <h2>Location: {location}</h2>
             <h3>Weight: {weight}kg</h3>
-            <button >Delivered</button>
+            <h3>Assigned Driver: {assignedDriverId}</h3>
+            <h3>{deliveryStatus ? 'Delivered' : 'Not delivered'}</h3>
+            <button onClick={() => handleClick()} >Delivered</button>
         </div>
     )
 }
 
 DeliveryCard.propTypes = {
     location: PropTypes.string.isRequired,
-    assignedDriverId: PropTypes.strng.isRequired,
-    isDelivered: PropTypes.boolean.isRequired,
+    assignedDriverId: PropTypes.string.isRequired,
+    isDelivered: PropTypes.bool.isRequired,
     weight: PropTypes.number.isRequired,
 }
 

@@ -1,5 +1,5 @@
-import DriverLogin from "../driver-login/DriverLogin";
-import ManagerLogin from "../manager-login/ManagerLogin";
+import DriverLogin from "../Driver/DriverLogin";
+import ManagerLogin from "../Manager/ManagerLogin";
 
 const Home = (props) => {
     return (
