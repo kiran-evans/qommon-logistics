@@ -31,7 +31,7 @@ const DeliveryCard = (props) => {
             <p>Assigned Driver: {assignedDriverId}</p>
             <p>Delivered: {deliveryStatus}</p>
             <h3>Weight: {weight}kg</h3>
-            <button >Delivered</button>
+            <button onClick={() => handleClick}>Delivered</button>
         </div>
     )
 }
