@@ -16,7 +16,7 @@ const DeliveryCard = (props) => {
 
     const handleClick = async () => {
         try {
-            await axios.put(`http://localhost:5000/api/delivery${id}`, {isDelivered:true});
+            await axios.put(`http://localhost:5000/api/delivery/${id}`, {isDelivered:true});
             setDeliveryStatus(true);
         } catch (err) {
             console.log(err);
@@ -25,11 +25,11 @@ const DeliveryCard = (props) => {
 
     return (
         <div className="deliveryCard" onClick={() => goToDelivery()} >
-            <h1>Delivery {id}</h1>
+            <h1>Delivery {parseInt(id.slice(-3).toUpperCase(), 16)}</h1>
             <h2>Location: {location}</h2>
             <h3>Weight: {weight}kg</h3>
             <h3>Assigned Driver: {assignedDriverId}</h3>
-            <h3>{deliveryStatus ? 'Delivered' : 'Not delivered'}</h3>
+            <h3>Delivery status: {deliveryStatus ? 'Delivered' : 'Not delivered'}</h3>
             <button onClick={() => handleClick()} >Delivered</button>
         </div>
     )
