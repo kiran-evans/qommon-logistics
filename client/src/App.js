@@ -1,9 +1,9 @@
 import './App.css';
-import Home from "./components/home/Home";
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DriverPage from './components/driver-page/DriverPage';
-import ManagerPage from './components/manager-page/ManagerPage';
+import Home from "./components/Home/Home";
+import DriverPage from './components/Driver/DriverPage';
+import ManagerPage from './components/Manager/ManagerPage';
 
 function App() {
 

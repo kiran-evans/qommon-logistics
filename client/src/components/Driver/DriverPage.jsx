@@ -1,4 +1,4 @@
-import Delivery from "../delivery/Delivery";
+import DeliveryCard from "../Delivery/DeliveryCard";
 
 const DriverPage = (props) => {
 
@@ -12,7 +12,7 @@ const DriverPage = (props) => {
             <h2>{driver._id}</h2>
 
             {driver.assignedDeliveries > 0 ? driver.assignedDeliveries.map(delivery => (
-                <Delivery id={delivery._id} location={delivery.location} weight={delivery.weight} />
+                <DeliveryCard key={delivery._id} id={delivery._id} location={delivery.location} weight={delivery.weight} assignedDriverId={delivery.assignedDriverId} isDelivered={delivery.isDelivered} />
             )) : <p>No assigned deliveries</p>}
         </div>
     )
