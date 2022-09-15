@@ -20,6 +20,10 @@ const deliverySchema = mongoose.Schema({
     required: true,
     min: 0,
     max: 2000,
+  },
+  dateAdded: {
+    type: Date,
+    required: true,
   }
 });
 module.exports = mongoose.model('delivery', deliverySchema);

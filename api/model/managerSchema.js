@@ -16,5 +16,10 @@ const managerSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  isManager: {
+    type: Boolean,
+    required: false,
+    default: true,
+  }
 });
 module.exports = mongoose.model('manager', managerSchema);
