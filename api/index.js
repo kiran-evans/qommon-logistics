@@ -18,6 +18,13 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
+const driverRoutes = require('./routes/driverRoutes');
+const managerRoutes = require('./routes/managerRoutes');
+const deliveryRoutes = require('./routes/deliveryRoutes');
+app.use('/api/driver', driverRoutes);
+app.use('/api/manager', managerRoutes);
+app.use('/api/delivery', deliveryRoutes);
+
 const server = app.listen(port, () => console.info(`Server started on port ${port}`));
 
 (configPath === './config/config.env') && console.warn("-- WARNING: Running development environment. NOT SAFE FOR TESTING. --");
