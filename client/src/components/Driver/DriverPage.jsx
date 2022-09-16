@@ -11,10 +11,11 @@ const DriverPage = (props) => {
 
     useEffect(() => {
         const getDeliveries = async () => {
+            if (!driver.assignedDeliveries) return;
             try {
                 let fetchedDeliveries = []; // Blank array
                 for (let i = 0; i < driver.assignedDeliveries.length; i++) {
-                    console.log(driver.assignedDeliveries.at(i));
+                    // console.log(driver.assignedDeliveries.at(i));
                     const res = await axios.get(`http://localhost:5000/api/delivery/${driver.assignedDeliveries.at(i)}`);
                     fetchedDeliveries.push(res.data);
                 }
@@ -26,7 +27,7 @@ const DriverPage = (props) => {
         getDeliveries();
     }, []);
 
-    console.log(deliveryArray);
+    // console.log(deliveryArray);
     
     // console.log(driver);
 

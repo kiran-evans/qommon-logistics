@@ -22,7 +22,7 @@ const DeliveryCard = (props) => {
     // }
 
     useEffect(() => {
-        if (assignedDriver) {
+        if (assignedDriverId) {
             const getCurrentDriver = async () => {
                 try {
                     const res = await axios.get(`http://localhost:5000/api/driver/${assignedDriverId}`);
@@ -74,7 +74,7 @@ const DeliveryCard = (props) => {
         try {
             if (assignedDriver) {
                 const newDeliveriesArray = assignedDriver.assignedDeliveries.splice(assignedDriver.assignedDeliveries.indexOf(id), 1);
-                props.setDriverChange(await axios.put(`http://localhost:5000/api/driver/${assignedDriverId}`, {
+                props.setDeliveryChange(await axios.put(`http://localhost:5000/api/driver/${assignedDriverId}`, {
                     assignedDeliveries: newDeliveriesArray
                 }));
             }

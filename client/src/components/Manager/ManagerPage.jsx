@@ -4,6 +4,7 @@ import DeliveryCard from "../Delivery/DeliveryCard";
 import DriverCard from "../Driver/DriverCard";
 import DeliveryForm from "./DeliveryForm";
 import DriverForm from "./DriverForm";
+import ManagerForm from "./ManagerForm";
 
 const ManagerPage = (props) => {
 
@@ -57,16 +58,19 @@ const ManagerPage = (props) => {
                         <DeliveryCard key={delivery._id} id={delivery._id} location={delivery.location} weight={delivery.weight} assignedDriverId={delivery.assignedDriverId && delivery.assignedDriverId} isDelivered={delivery.isDelivered} dateAdded={delivery.dateAdded} isManager={manager.isManager} setDeliveryChange={setDeliveryChange} />
                     ))}
                 </div>
+
                 <div className="dashboardComponent">
                     <h3>Drivers</h3>
                     {drivers.map(driver => (
                         <DriverCard key={driver._id} id={driver._id} username={driver.username} name={driver.name} maxCarryWeight={driver.maxCarryWeight} assignedDeliveries={driver.assignedDeliveries} isManager={manager.isManager} setDriverChange={setDriverChange} />
                     ))}
                 </div>
+
                 <div className="dashboardComponent">
                     <h3>Manage</h3>
                     <DeliveryForm setDeliveryChange={setDeliveryChange} />
                     <DriverForm setDriverChange={setDriverChange} />
+                    <ManagerForm />
                 </div>
             </div>
 
