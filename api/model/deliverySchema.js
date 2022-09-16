@@ -7,8 +7,8 @@ const deliverySchema = mongoose.Schema({
   },
   assignedDriverId: {
     type: String,
-    required: true,
-    default: "none",
+    required: false,
+    default: '',
   },
   isDelivered: {
     type: Boolean,

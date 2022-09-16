@@ -10,6 +10,8 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState('');
 
+  // currentUser && console.log(currentUser.username);
+
   return (
     <BrowserRouter>
       <div className="App">

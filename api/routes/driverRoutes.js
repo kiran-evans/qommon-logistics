@@ -11,7 +11,8 @@ const {
 } = require('../controller/driverController');
 
 router.route('/').get(getAllDrivers).post(createDriver);
-router.route('/:id&:username').delete(deleteDriver).put(updateDriver).get(getDriverByID).get(getDriverByUsername);
+router.route('/:id').delete(deleteDriver).put(updateDriver).get(getDriverByID);
+router.route('/:username').get(getDriverByUsername);
 router.route('/login').post(loginDriver);
 
 module.exports = router;
