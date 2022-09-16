@@ -1,3 +1,4 @@
+import axios from 'axios';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -5,12 +6,20 @@ const DriverCard = (props) => {
 
     const { id, username, name, maxCarryWeight, assignedDeliveries } = props;
 
+    const deleteButtonClick = async () => {
+        try {
+            props.setDriverChange(await axios.delete(`http://localhost:5000/api/driver/${id}`));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
         <div className="driverCard">
             {props.isManager &&
                 <div className="managerButtons">
                     <button className="editButton" title="Edit this driver"><EditIcon /></button>
-                    <button className="deleteButton" title="Delete this driver"><DeleteIcon /></button>
+                    <button className="deleteButton" title="Delete this driver" onClick={() => deleteButtonClick()}><DeleteIcon /></button>
                 </div>
             }
             <h1>{name}</h1>

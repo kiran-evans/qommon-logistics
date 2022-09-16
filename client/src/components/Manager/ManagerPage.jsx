@@ -54,7 +54,7 @@ const ManagerPage = (props) => {
                 <div className="dashboardComponent">
                     <h3>Deliveries</h3>
                     {deliveries.map(delivery => (
-                        <DeliveryCard key={delivery._id} id={delivery._id} location={delivery.location} weight={delivery.weight} assignedDriverId={delivery.assignedDriverId} isDelivered={delivery.isDelivered} dateAdded={delivery.dateAdded} isManager={manager.isManager} setDeliveryChange={setDeliveryChange} />
+                        <DeliveryCard key={delivery._id} id={delivery._id} location={delivery.location} weight={delivery.weight} assignedDriverId={delivery.assignedDriverId && delivery.assignedDriverId} isDelivered={delivery.isDelivered} dateAdded={delivery.dateAdded} isManager={manager.isManager} setDeliveryChange={setDeliveryChange} />
                     ))}
                 </div>
                 <div className="dashboardComponent">
