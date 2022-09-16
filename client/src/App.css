@@ -131,6 +131,7 @@ option {
 .dashboardComponent {
   padding: 1em 2em;
   margin: 1em;
+  flex: 1;
 }
 
 .dashboardComponent h1 {
@@ -206,6 +207,10 @@ button.deleteButton {
   flex-direction: column;
 }
 
+.deliveryForm input, .driverForm input {
+  margin-bottom: 1em;
+}
+
 /* Driver dashboard */
 
 .driverPage h1 {
@@ -224,6 +229,7 @@ button.deleteButton {
   border-radius: 0.5em;
   padding: 1.2em 1.5em;
   margin: 2em 0;
+  max-width: 25em;
 }
 
 .deliveryCard h2, .driverCard h2 {
