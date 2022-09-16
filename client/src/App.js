@@ -1,9 +1,10 @@
 import './App.css';
-import Home from "./components/home/Home";
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import DriverPage from './components/driver-page/DriverPage';
-import ManagerPage from './components/manager-page/ManagerPage';
+import Home from "./components/Home/Home";
+import DriverPage from './components/Driver/DriverPage';
+import ManagerPage from './components/Manager/ManagerPage';
+import Header from './components/Header/Header';
 
 function App() {
 
@@ -11,13 +12,16 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div className="App">
-      <Routes>
-        <Route exact path="/" element={<Home setCurrentUser={setCurrentUser} />} />
-        <Route exact path="/driver" element={<DriverPage currentUser={currentUser} />} />
-        <Route exact path="/manager" element={<ManagerPage currentUser={currentUser} />} />
-      </Routes>      
-    </div>
+      <div className="App">
+        <Header />
+        <div className='mainContainer'>
+          <Routes>
+            <Route exact path="/" element={<Home setCurrentUser={setCurrentUser} />} />
+            <Route exact path="/driver" element={<DriverPage currentUser={currentUser} />} />
+            <Route exact path="/manager" element={<ManagerPage currentUser={currentUser} />} />
+          </Routes>  
+        </div>    
+      </div>
     </BrowserRouter>
   );
 }
